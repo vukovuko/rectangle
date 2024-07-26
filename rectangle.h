@@ -9,8 +9,12 @@
 
 #define PROXY "127.0.0.1"  // Localhost
 #define PROXYPORT 9950     // Default port
+#define USERNAME "rectang"
 
 // See https://www.openssh.com/txt/socks4.protocol
+
+#define reqsize sizeof(struct proxy_request)
+#define ressize sizeof(struct proxy_response)
 
 typedef unsigned char int8;
 typedef unsigned short int int16;
@@ -32,3 +36,7 @@ struct proxy_response {
     int32 __;
 };
 typedef struct proxy_response Res;
+
+Req* request(const char* dstip, const int dstport);
+
+int main(int, char**);
